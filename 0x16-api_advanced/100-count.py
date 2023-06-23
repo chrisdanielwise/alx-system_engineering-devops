@@ -25,7 +25,10 @@ def count_words(subreddit, word_list, instances=None, after="", count=0):
         "limit": 100
     }
     response = requests.get(
-        url, headers=headers, params=params, allow_redirects=False
+        url,
+        headers=headers,
+        params=params,
+        allow_redirects=False
     )
     try:
         results = response.json()
@@ -50,7 +53,8 @@ def count_words(subreddit, word_list, instances=None, after="", count=0):
             print("")
             return
         instances = sorted(
-            instances.items(), key=lambda kv: (-kv[1], kv[0].lower())
+            instances.items(),
+            key=lambda kv: (-kv[1], kv[0].lower())
         )
         for k, v in instances:
             print("{}: {}".format(k, v))
